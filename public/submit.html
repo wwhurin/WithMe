@@ -21,7 +21,7 @@
         messagingSenderId: "410621998244"
     };
     firebase.initializeApp(config);
-  </script> 
+  </script>
   <script language="javascript">
   (function (window, undefined){
 "use strict";
@@ -185,6 +185,7 @@ appendCss: function()
   cssCode += ".pjDbPopup table { width: 100%; border-collapse: collapse; border-spacing: 0; }";
   cssCode += ".pjDbPopup a[href^=tel] { color: inherit; }";
   cssCode += ".pjDbPopup { font-family: 'Open Sans', sans-serif; position: fixed; top: 0; left: 0; z-index: 9999; overflow: hidden; width: 0; height: 0; background: rgba(0, 0, 0, .8); }";
+  //배경
   cssCode += ".pjDbPopup.pjDbPopupAutoLoad.pjDbPopupDisabled { display: none !important; }";
   cssCode += ".pjDbPopup .pjDbPopupInner { position: absolute; top: 50%; left: 50%; width: 420px; max-width: 98%; max-height: 98%; -webkit-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); -o-transform: translate(-50%, -50%); transform: translate(-50%, -50%); }";
   cssCode += ".pjDbPopup .pjDbPopupContent { overflow-y: auto; width: 100%; background: #fff; -webkit-transform: scale(0); -ms-transform: scale(0); -o-transform: scale(0); transform: scale(0); }";
@@ -193,12 +194,13 @@ appendCss: function()
   cssCode += ".pjDbPopup .pjDbPopupBtn { display: inline-block; vertical-align: middle; cursor: pointer; }";
   cssCode += ".pjDbPopup .pjDbPopupBtn:hover,.pjDbPopup .pjDbPopupBtn:focus { text-decoration: none; }";
   cssCode += ".pjDbPopup .pjDbPopupBtnPrimary { position: relative; height: 44px; padding: 0 30px; border: 0; background: #4e4e4e; font-size: 20px; line-height: 44px; color: #fff; font-weight: 400; text-transform: uppercase; -webkit-transform: translateZ(0); transform: translateZ(0); -webkit-backface-visibility: hidden; backface-visibility: hidden; -moz-osx-font-smoothing: grayscale; }";
+//그룹 생성하기 버튼
   cssCode += ".pjDbPopup .pjDbPopupBtnPrimary:before { position: absolute; top: 0; right: 52%; bottom: 0; left: 52%; z-index: -1; border-bottom: 4px solid #000; background: rgba(0, 0, 0, .5); content: ''; }";
   cssCode += ".pjDbPopup .pjDbPopupBtnPrimary:hover:before,.pjDbPopup .pjDbPopupBtnPrimary:focus:before { right: 0; left: 0; }";
   cssCode += ".pjDbPopup .pjDbPopupForm { padding: 15px 20px; }";
   cssCode += ".pjDbPopup .pjDbPopupForm .pjDbPopupFormHead { padding: 5px 0 15px; }";
   cssCode += ".pjDbPopup .pjDbPopupForm .pjDbPopupFormBody { padding: 5px 0; }";
-  cssCode += ".pjDbPopup .pjDbPopupForm .pjDbPopupFormHead .pjDbPopupFormTitle { font-size: 24px; line-height: 1.4; color: #000; font-weight: 700; }";
+  cssCode += ".pjDbPopup .pjDbPopupForm .pjDbPopupFormHead .pjDbPopupFormTitle { font-size: 24px; line-height: 1.4; color: #777777; font-weight: 700; }"; //제목
   cssCode += ".pjDbPopup .pjDbPopupForm .pjDbPopupFormRow { padding-bottom: 20px; }";
   cssCode += ".pjDbPopup .pjDbPopupForm .pjDbPopupFormLabel { font-size: 18px; line-height: 1.4; color: #000; font-weight: 400; }";
   cssCode += ".pjDbPopup .pjDbPopupForm .pjDbPopupFormControls { padding-top: 2px; }";
@@ -212,7 +214,7 @@ appendCss: function()
   cssCode += ".pjDbPopup .pjDbPopupForm .pjDbPopupSelectCustom select { position: relative; z-index: 2; width: 100%; height: 100%; padding: 0 30px 0 15px; border: 0; background: transparent; cursor: pointer; border-radius: 0; -webkit-appearance: none; -moz-appearance: none; appearance: none; }";
   cssCode += ".pjDbPopup .pjDbPopupForm .pjDbPopupSelectCustom select::-ms-expand { display: none; }";
   cssCode += ".pjDbPopup .pjDbPopupForm .pjDbPopupFormFoot { padding: 15px 0 5px; }";
-  cssCode += ".pjDbPopup .pjDbPopupForm .pjDbFieldError{display: none; color: #ef2136; font-size: 15px;}";
+  cssCode += ".pjDbPopup .pjDbPopupForm .pjDbFieldError{display: none; color: #fa6e57; font-size: 15px;}"; // 빈칸 있을 때 모두 입력하라고 메세지 뜨는 부분
 
   var styleElement = document.createElement("style");
   styleElement.type = "text/css";
@@ -237,14 +239,14 @@ loadDialog: function(){
   htmlDialog += '<div class="pjDbPopupForm">';
   htmlDialog += '<form id="pjDbDialogForm" action="#" method="post">';
   htmlDialog += '<header class="pjDbPopupFormHead">';
-  htmlDialog += '<p class="pjDbPopupFormTitle">정보를 입력하세요</p>';
+  htmlDialog += '<p class="pjDbPopupFormTitle">나와 함께할래요?</p>';
   htmlDialog += '</header>';
   htmlDialog += '<div class="pjDbPopupFormBody">';
 
   htmlDialog += '<div class="pjDbPopupFormRow">';
   htmlDialog += '<label for="" class="pjDbPopupFormLabel">이름: </label>';
   htmlDialog += '<div class="pjDbPopupFormControls">';
-  htmlDialog += '<input type="text" name="name" class="pjDbPopupFormField required" placeholder="Name" />';
+  htmlDialog += '<input type="text" name="name" class="pjDbPopupFormField required" placeholder="굳이 실명을 밝히지 않아도 좋아요!" />';
   htmlDialog += '<label class="pjDbFieldError"></label>';
   htmlDialog += '</div>';
   htmlDialog += '</div>';
@@ -252,7 +254,7 @@ loadDialog: function(){
   htmlDialog += '<div class="pjDbPopupFormRow">';
   htmlDialog += '<label for="" class="pjDbPopupFormLabel">제목: </label>';
   htmlDialog += '<div class="pjDbPopupFormControls">';
-  htmlDialog += '<input type="text" name="title" class="pjDbPopupFormField required" placeholder="제목" />';
+  htmlDialog += '<input type="text" name="title" class="pjDbPopupFormField required" placeholder="개설할 그룹의 이름을 입력하세요!" />';
   htmlDialog += '<label class="pjDbFieldError"></label>';
   htmlDialog += '</div>';
   htmlDialog += '</div>';
@@ -260,7 +262,7 @@ loadDialog: function(){
   htmlDialog += '<div class="pjDbPopupFormRow">';
   htmlDialog += '<label for="" class="pjDbPopupFormLabel">인원: </label>';
   htmlDialog += '<div class="pjDbPopupFormControls">';
-  htmlDialog += '<input type="text" name="people" class="pjDbPopupFormField required" placeholder="인원" />';
+  htmlDialog += '<input type="text" name="people" class="pjDbPopupFormField required" placeholder="그룹원은 몇 명이 좋을까요?(숫자만 입력하세요 ex)3 )" />';
   htmlDialog += '<label class="pjDbFieldError"></label>';
   htmlDialog += '</div>';
   htmlDialog += '</div>';
@@ -269,9 +271,10 @@ loadDialog: function(){
   htmlDialog += '<label for="" class="pjDbPopupFormLabel">분류: </label>';
   htmlDialog += '<div class="pjDbPopupFormControls">';
   htmlDialog += '<select name="sel" id="sel"style="width:370px;height:40px;" >';
-  htmlDialog += '<option value="1">스터디</option>';
-  htmlDialog += '<option value="2">공동구매</option>';
-  htmlDialog += '<option value="3">분실물</option>';
+  htmlDialog += '<option value="1">전공스터디</option>';
+  htmlDialog += '<option value="2">보충수업</option>';
+  htmlDialog += '<option value="3">공동구매</option>';
+  htmlDialog += '<option value="4">분실물</option>';
   htmlDialog += '</select>';
   htmlDialog += '</div>';
   htmlDialog += '<label class="pjDbFieldError"></label>';
@@ -281,7 +284,7 @@ loadDialog: function(){
   htmlDialog += '<div class="pjDbPopupFormRow">';
   htmlDialog += '<label for="" class="pjDbPopupFormLabel">내용: </label>';
   htmlDialog += '<div class="pjDbPopupFormControls">';
-  htmlDialog += '<TEXTAREA type="text" name="content" class="pjDbPopupFormField required" placeholder="내용"></TEXTAREA>';
+  htmlDialog += '<TEXTAREA type="text" name="content" class="pjDbPopupFormField required" placeholder="어떤 내용의 그룹인가요?"></TEXTAREA>';
   htmlDialog += '<label class="pjDbFieldError"></label>';
   htmlDialog += '</div>';
   htmlDialog += '</div>';
@@ -291,7 +294,7 @@ loadDialog: function(){
 
   htmlDialog += '<footer class="pjDbPopupFormFoot">';
   htmlDialog += '<div class="pjDbPopupFormActions">';
-  htmlDialog += '<button type="button" class="pjDbPopupBtn pjDbPopupBtnPrimary pjDbBtnSubmit">Submit form</button>';
+  htmlDialog += '<button type="button" class="pjDbPopupBtn pjDbPopupBtnPrimary pjDbBtnSubmit">그룹생성하기</button>';
   htmlDialog += '</div>';
   htmlDialog += '</footer>';
   htmlDialog += '</form>';
@@ -381,7 +384,8 @@ bindDialog: function(){
                        }
                    }
                }
-              xmlHttp.open("get", "settings.html");
+              //xmlHttp.open("get", "settings.html");
+              //이부분 수정해야하는가?
               xmlHttp.send();
         }
         return false;
@@ -405,8 +409,8 @@ validateForm: function()
   var $peopleErrorMessage = $people.nextSibling;
   var $titleErrorMessage = $title.nextSibling;
   var $contenErrorMessage = $content.nextSibling;
-  
-//빈값 오류 띄우는 부분 
+
+//빈값 오류 띄우는 부분
   while($nameErrorMessage && $nameErrorMessage.nodeType != 1) {
     $nameErrorMessage = $nameErrorMessage.nextSibling;
   }
@@ -419,11 +423,11 @@ validateForm: function()
   while($contenErrorMessage && $contenErrorMessage.nodeType != 1) {
     $contenErrorMessage = $contenErrorMessage.nextSibling;
   }
-  
+
 
   if($name.value == '')
   {
-    $nameErrorMessage.innerHTML = 'This field is required';
+    $nameErrorMessage.innerHTML = '칸이 비었어요! 입력해주세요!';
     $nameErrorMessage.style.display = 'block';
     formValid = false;
   }
@@ -433,7 +437,7 @@ validateForm: function()
 
   if($title.value == '')
   {
-    $titleErrorMessage.innerHTML = 'This field is required';
+    $titleErrorMessage.innerHTML = '칸이 비었어요! 입력해주세요!';
     $titleErrorMessage.style.display = 'block';
     formValid = false;
   }
@@ -443,7 +447,7 @@ validateForm: function()
 
   if($content.value == '')
   {
-    $contenErrorMessage.innerHTML = 'This field is required';
+    $contenErrorMessage.innerHTML = '칸이 비었어요! 입력해주세요!';
     $contenErrorMessage.style.display = 'block';
     formValid = false;
   }
@@ -453,11 +457,11 @@ validateForm: function()
 
   if($people.value == '')
   {
-    $peopleErrorMessage.innerHTML = 'This field is required';
+    $peopleErrorMessage.innerHTML = '칸이 비었어요! 입력해주세요!';
     $peopleErrorMessage.style.display = 'block';
     formValid = false;
   }else{
-   
+
     if(isNaN($people.value) == true)
     {
       $peopleErrorMessage.innerHTML = '숫자를 입력해주세요.';
@@ -491,6 +495,10 @@ var self = this;
   var $title = $frm.elements["title"];
   var $sel = $frm.elements["sel"];
   var $content = $frm.elements["content"];
+  var result = userBuildingRef.update(update);
+  
+  var temp = location.href.split("?");
+  var data=temp[1].split(":");
 
 function writeUserInfo(userId,typeNum,treeRef,rand) {
     var newTreeRef = treeRef.replace(/\//gi, '*');
@@ -534,21 +542,20 @@ function writeUserInfo(userId,typeNum,treeRef,rand) {
               break;
 
       }
-      
+
       var building=["mainbuiding","secondbuilding"];
-      var layer = [["1층","2층","3층","4층"],["지하1층","1층","2층","3층","4층"]]; 
+      var layer = [["1층","2층","3층","4층"],["지하1층","1층","2층"]];
       var room = [
     [
-    ["도서관","ATM"],
-    ["1교무실","2교무실","3교무실","방과후교육부실","진로교육실","보건실","과학실","보건교육실","수준별교육실1","수준별교욱실2"],
-    ["2-1","2-2","4교무실","5교무실","뉴솔1실","뉴솔2실","인미1실","인미2실","앱반동방","프론트실","미벤동방","세미나실","동아리방","앱창1실"],
-    ["1-1","1-2","1-3","1-4","1-5","1-6","2-3","2-4","2-5","2-6","겜메실","영미실","테베실","앱창2실"]
+    ["도서관","매점"],
+    ["보건교육실","수준별1실","수준별2실","상담실","상담부","3교무실","보건실","과학실","웹진실","2교무실","여교사휴게실","남교사휴게실","대외협력실","원로교사실","행정실","교장실","1교무실"],
+    ["뉴미디어 디자인 2실","조교실","프린트실","뉴미디어 솔루션 1실","앱창작터 실습실1","인터렉티브 미디어 1실","미벤실","앱지원센터","뉴미디어 솔루션 2실","2-1","2-2","4교무실","세미나실","방송실","5교무실"],
+    ["1-5","1-6","2-4","1-4","1-3","1-2","1-1","2-3","뉴미디어 디자인 2실","디지털 스튜디오","무한상상카페","2-5","2-6","앱창작터실습실2"]
     ],
     [
-    ["기숙사"],
-    ["강당","커리어존","조형실습실","3D동방","선도부실"],
-    ["3-4","3-5","3-6","조리실습실","기능대회준비한곳"],
-    ["3-1","3-2","영어카페","예절실습실"]
+    ["아트 스튜디오","강당","학생 쉼터","컨설팅룸","진로활동실","음악실"],
+    ["가사실습실","디자인실습실","강당","3-6","3-5","3-4"],
+    ["예절교육실","English Cafe","강당","3-1","3-2","3-3"]
     ]
     ];
 
@@ -563,24 +570,27 @@ function writeUserInfo(userId,typeNum,treeRef,rand) {
       alert(treeRef);
       var key = userBuildingRef.push().key;
       var buildingKey = key;
+      var x = data[1];
+      var y = data[2];
       var update =  {};
       update[key] = {
         name : name,
         title : title,
         people : people,
         sort  : sel,
-        content : content
+        content : content,
+        x : x,
+        y : y
       };
 
       //firebase.database().ref('userInfo/' + userId+'/'+typeClass).set({
       var result = userBuildingRef.update(update);
-      var temp = location.href.split("?");
-      var data=temp[1].split(":");
+
+      
       var user=data[0];
       var userID=user.split("@");
       console.log(userID);
-      
-      writeUserInfo(userID[0],1,treeRef,buildingKey);//userID 부분이 wwhurin 부분인데 
+      writeUserInfo(userID,1,treeRef,buildingKey);//userID 부분이 wwhurin 부분인데
       //이게 특수기호가 안들어가서 @를 기준으로 ( 이메일에서 ) 잘라서 아이디만 넣어야 할지도 모르겠다
   }
 
@@ -589,11 +599,13 @@ var database = firebase.database();
 //var authProvider = new firebase.auth.GoogleAuthProvider();
 
   makeClass(0, 0, 0, $name.value, $title.value, $people.value, $sel.value, $content.value);
-  //내가 임의로 0, 0, 0 해뒀는데 본래는 클릭한 곳의 값이 들어와야 한다. 
+  //내가 임의로 0, 0, 0 해뒀는데 본래는 클릭한 곳의 값이 들어와야 한다.
   //building, layer, room 순서!
-  //뒤에는 값들 
+  //뒤에는 값들
 
-  //window.location.href="settings.html";//입력 완료하면 페이지 넘어가게 하는 부분. 본래 자신이 입력한 곳의 지도가 있는 
+  history.go(-1);
+  //이게 새 창이라서 뒤로가기 안돼 그래서 닫기 할게
+  //window.location.href="settings.html";//입력 완료하면 페이지 넘어가게 하는 부분. 본래 자신이 입력한 곳의 지도가 있는
   //페이지로 이동시키면 새로고침도 되고 페이지 이동도 될 듯
   return data.join("&");//무시
 }

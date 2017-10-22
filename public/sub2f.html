@@ -18,65 +18,36 @@
 		  };
 		 firebase.initializeApp(config);
 	</script>
-    <script type="text/javascript">
+    <script language="javascript">
+    function back(){
+        history.go(-1);
+    }
 
-      function back(){
-          history.go(-1);
-      }
+    function goSet(){
+         location.href='settings.html';
+    }
+    function goMajor(){
 
-      function goMain(){
-         location.href='mFloor.html';
-      }
+      location.href='major.html';
 
-      function goSub(){
-         location.href='sFloor.html';
-      }
+    }
+    function goRemedial(){
 
+      location.href='remedial.html';
 
-      function goMajor(){
+    }
+    function goLostFound(){
 
-        location.href='major.html';
+      location.href='lostfound.html';
 
-      }
-      function goRemedial(){
+    }
+    function goGongGu(){
 
-        location.href='remedial.html';
+      location.href='gouggu.html';
 
-      }
-      function goLostFound(){
-
-        location.href='lostfound.html';
-
-      }
-      function goGongGu(){
-
-        location.href='gouggu.html';
-
-      }
-
-      function changeS(){
-
-        var img1 = document.getElementById("main");
-
-          img1.src="image/sub.png";
-
-      }
-
-      function change(){
-
-        console.log("test");
-
-        var img1 = document.getElementById("main");
-
-          img1.src="image/main.png";
-
-
-
-      }
-
+    }
 
     </script>
-
 
 <style media="screen">
 
@@ -103,55 +74,9 @@
   .bgimg{
 
     position: absolute;
-
-     left:27%;
-     /*left:300px;*/
-
-  }
+    left: 250px;
 
 
-
-  .btstyle{
-
-    background-color:inherit;
-    border: 0;
-    outline:0;
-
-  }
-
-
-    .btlayout{
-
-      position: relative;
-      left: 650px;
-      top:200px;
-    }
-
-
-    .menuBar{
-
-      background-color: orange;
-      font-family: 'Noto Sans KR', sans-serif;
-      color:white;
-      height:100px;
-      font-size:20pt;
-
-    }
-
-  #category{
-
-    background-image: url("image/category.png");
-
-  }
-
-
-@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
-  #title{
-
-    font-size: 300%;
-    color: #9e9e9e;
-    font-size: 25pt;
-    font-family: 'Noto Sans KR', sans-serif;
   }
 
   #back{
@@ -162,28 +87,29 @@
      background-image: url(image/backb.png);
    }
 
-   #main{
-      position:relative; top:80px;
-      position: absolute;
 
-       left:27%;
+  #category{
 
-    }
+    background-image: url("image/category.png");
 
-    #sub{
-       position:relative; top:80px;
-       position: absolute;
+  }
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+  #title{
 
-        left:27%;
-     }
+    font-size: 300%;
+    color: #9e9e9e;
+    font-size: 25pt;
+
+ont-family: 'Noto Sans KR', sans-serif;
+
+
+  }
+
 
 </style>
 
   </head>
-  <body style="background-color:#f8f8f7">
-
-
-
+  <body>
 
       <div class="main">
 
@@ -234,53 +160,40 @@
 <table style="position:fixed;left:270px; top:0px;" >
   <tr>
     <td>
-      <input type="button" name="" value="" id=back onclick="back();">
+    <input type="button" name="" value="" id=back onclick="back();">
     </td>
     <td id='title'>
-       &nbsp;돌아가기
+       &nbsp;강당동 2F
     </td>
   </tr>
 </table>
 
 
+<div style="margin-left:5%; position:relative; top:50px;">
+  <img src="image/sub2f.png" alt="" class="bgimg" usemap="#Map">
+  <map name="Map">
+    <area shape="rect" coords="535,121,844,229" alt="예절교육실" href="submit.html" target="_blank" />
+    <area shape="rect" coords="400,229,534,337" alt="잉카" href="submit.html" target="_blank" />
+    <area shape="rect" coords="871,123,948,719" alt="강당" href="submit.html" target="_blank" />
+    <area shape="rect" coords="756,626,843,715" alt="3-3" href="submit.html" target="_blank" />
+    <area shape="rect" coords="629,627,717,715" alt="3-2" href="submit.html" target="_blank" />
+    <area shape="rect" coords="499,626,591,718" alt = "3-1" href="submit.html" target="_blank"/>
+  </map>
+</div>
 
 <div class="main" style="position:fixed;right:0px; width:150px;">
   <table align=center>
     <tr>
       <td height=130px>
         <button type="button" class="menu" name="button">
-          <img src="image/settings.png" alt="">
+          <img src="image/settings.png" alt=""  onclick="goSet();">
         </button>
       </td>
     </tr>
   </table>
+
 </div>
 
-  <div style="position:relative; left:300px; top:100px;">
-
-    <table width=1000px; style="color:#777777">
-      <tr class="menuBar" >
-        <td> 내가 만든 그룹</td>
-      </tr>
-      <tr height="300px">
-        <td>그룹 목록을 표시합니다</td>
-      </tr>
-      <tr class="menuBar">
-        <td>내가 참여한 그룹</td>
-      </tr>
-      <tr height="300px">
-
-    <td>그룹 목록을 표시합니다</td>
-      </tr>
-      <tr class="menuBar" >
-        <td>내가 참여했던 그룹</td>
-      </tr>
-      <tr height="300px">
-    <td>그룹 목록을 표시합니다</td>
-      </tr>
-    </table>
-
-  </div>
 
   </body>
 </html>

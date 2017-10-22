@@ -23,15 +23,22 @@
       function back(){
           history.go(-1);
       }
-
-      function goMain(){
-         location.href='mFloor.html';
+      function go2f(){
+         location.href='sub2f.html';
       }
 
-      function goSub(){
-         location.href='sFloor.html';
+      function go1f(){
+         location.href='sub1f.html';
       }
 
+
+      function gob1f(){
+         location.href='subb1.html';
+      }
+
+      function goSet(){
+           location.href='settings.html';
+      }
 
       function goMajor(){
 
@@ -53,28 +60,6 @@
         location.href='gouggu.html';
 
       }
-
-      function changeS(){
-
-        var img1 = document.getElementById("main");
-
-          img1.src="image/sub.png";
-
-      }
-
-      function change(){
-
-        console.log("test");
-
-        var img1 = document.getElementById("main");
-
-          img1.src="image/main.png";
-
-
-
-      }
-
-
     </script>
 
 
@@ -103,9 +88,8 @@
   .bgimg{
 
     position: absolute;
+    left: 300px;
 
-     left:27%;
-     /*left:300px;*/
 
   }
 
@@ -128,15 +112,6 @@
     }
 
 
-    .menuBar{
-
-      background-color: orange;
-      font-family: 'Noto Sans KR', sans-serif;
-      color:white;
-      height:100px;
-      font-size:20pt;
-
-    }
 
   #category{
 
@@ -162,20 +137,6 @@
      background-image: url(image/backb.png);
    }
 
-   #main{
-      position:relative; top:80px;
-      position: absolute;
-
-       left:27%;
-
-    }
-
-    #sub{
-       position:relative; top:80px;
-       position: absolute;
-
-        left:27%;
-     }
 
 </style>
 
@@ -231,6 +192,7 @@
 
 
 
+
 <table style="position:fixed;left:270px; top:0px;" >
   <tr>
     <td>
@@ -249,38 +211,43 @@
     <tr>
       <td height=130px>
         <button type="button" class="menu" name="button">
-          <img src="image/settings.png" alt="">
+          <img src="image/settings.png" alt=""  onclick="goSet();">
         </button>
       </td>
     </tr>
   </table>
 </div>
 
-  <div style="position:relative; left:300px; top:100px;">
 
-    <table width=1000px; style="color:#777777">
-      <tr class="menuBar" >
-        <td> 내가 만든 그룹</td>
-      </tr>
-      <tr height="300px">
-        <td>그룹 목록을 표시합니다</td>
-      </tr>
-      <tr class="menuBar">
-        <td>내가 참여한 그룹</td>
-      </tr>
-      <tr height="300px">
+<table class="btlayout" height=400px;>
+  <tr>
+    <td>
+      <button type="button" name="button" class="btstyle" onclick="go2f()">
+        <img src="image/b_sub2f.png" alt="">
+      </button>
+    </td>
+  </tr>
 
-    <td>그룹 목록을 표시합니다</td>
-      </tr>
-      <tr class="menuBar" >
-        <td>내가 참여했던 그룹</td>
-      </tr>
-      <tr height="300px">
-    <td>그룹 목록을 표시합니다</td>
-      </tr>
-    </table>
+  <tr>
+    <td>
+      <button type="button" name="button" class="btstyle"  onclick="go1f()">
+        <img src="image/b_sub1f.png" alt="">
+      </button>
+    </td>
+  </tr>
 
-  </div>
+  <tr>
+    <td>
+      <button type="button" name="button" class="btstyle"  onclick="gob1f()">
+        <img src="image/b_subb1f.png" alt="">
+      </button>
+    </td>
+  </tr>
+
+
+</table>
+
+
 
   </body>
 </html>

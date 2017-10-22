@@ -20,9 +20,28 @@
 	</script>
     <script type="text/javascript">
 
-      function back(){
-          history.go(-1);
-      }
+
+
+    function goMajor(){
+
+      location.href='major.html';
+
+    }
+    function goRemedial(){
+
+      location.href='remedial.html';
+
+    }
+    function goLostFound(){
+
+      location.href='lostfound.html';
+
+    }
+    function goGongGu(){
+
+      location.href='gonggu.html';
+
+    }
 
       function goMain(){
          location.href='mFloor.html';
@@ -32,27 +51,10 @@
          location.href='sFloor.html';
       }
 
-
-      function goMajor(){
-
-        location.href='major.html';
-
+      function back(){
+          history.go(-1);
       }
-      function goRemedial(){
 
-        location.href='remedial.html';
-
-      }
-      function goLostFound(){
-
-        location.href='lostfound.html';
-
-      }
-      function goGongGu(){
-
-        location.href='gouggu.html';
-
-      }
 
       function changeS(){
 
@@ -70,6 +72,13 @@
 
           img1.src="image/main.png";
 
+
+
+      }
+
+      function goSet(){
+
+           location.href='settings.html';
 
 
       }
@@ -127,14 +136,14 @@
       top:200px;
     }
 
+    .content{
+      overflow:scroll;
+      position:fixed; top:200px;
+      left:300px;
+      background-color:black;
+      width:800px;
+      height: auto;
 
-    .menuBar{
-
-      background-color: orange;
-      font-family: 'Noto Sans KR', sans-serif;
-      color:white;
-      height:100px;
-      font-size:20pt;
 
     }
 
@@ -185,6 +194,7 @@
 
 
 
+
       <div class="main">
 
       <table width=250px ; height=400px ; align=center;>
@@ -231,10 +241,11 @@
 
 
 
+
 <table style="position:fixed;left:270px; top:0px;" >
   <tr>
     <td>
-      <input type="button" name="" value="" id=back onclick="back();">
+        <input type="button" name="" value="" id=back onclick="back();">
     </td>
     <td id='title'>
        &nbsp;돌아가기
@@ -249,38 +260,24 @@
     <tr>
       <td height=130px>
         <button type="button" class="menu" name="button">
-          <img src="image/settings.png" alt="">
+          <img src="image/settings.png" alt="" onclick="goSet();">
         </button>
       </td>
     </tr>
   </table>
 </div>
 
-  <div style="position:relative; left:300px; top:100px;">
 
-    <table width=1000px; style="color:#777777">
-      <tr class="menuBar" >
-        <td> 내가 만든 그룹</td>
-      </tr>
-      <tr height="300px">
-        <td>그룹 목록을 표시합니다</td>
-      </tr>
-      <tr class="menuBar">
-        <td>내가 참여한 그룹</td>
-      </tr>
-      <tr height="300px">
-
-    <td>그룹 목록을 표시합니다</td>
-      </tr>
-      <tr class="menuBar" >
-        <td>내가 참여했던 그룹</td>
-      </tr>
-      <tr height="300px">
-    <td>그룹 목록을 표시합니다</td>
-      </tr>
-    </table>
-
-  </div>
+<div class=""  style="position:fixed; top:50px; left:300px;" align=center>
+  <table style="width:1000px">
+    <tr style="height:100px ; color:#8c6954; font-size:15pt" align=center>
+      <td> <h1> Lost & Found </h1> </td>
+    </tr>
+    <tr style="height:10px ; background-color:#8c6954">
+      <td></td>
+    </tr>
+  </table>
+</div>
 
   </body>
 </html>

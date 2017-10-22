@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>미림 소프트웨어 대회</title>
+    <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase-database.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/4.5.0/firebase-firestore.js"></script>
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<script>
+		var config = {
+			apiKey: "AIzaSyAQiKIdgLMjIdAjb69BXXe3f0y-YW1rweM",
+			authDomain: "withme-1ff36.firebaseapp.com",
+			databaseURL: "https://withme-1ff36.firebaseio.com",
+			projectId: "withme-1ff36",
+			storageBucket: "",
+			messagingSenderId: "410621998244"
+		  };
+		 firebase.initializeApp(config);
+	</script>
+    <script type="text/javascript">
+
+var temp = location.href.split("?");
+
+    function goMajor(){
+
+      location.href='major.html';
+
+    }
+    function goRemedial(){
+
+      location.href='remedial.html';
+
+    }
+    function goLostFound(){
+
+      location.href='lostfound.html';
+
+    }
+    function goGongGu(){
+
+      location.href='gouggu.html';
+
+    }
+
+      function goMain(){
+         location.href='mFloor.html?'+temp[1]+":"+"0";
+      }
+
+      function goSub(){
+         location.href='sFloor.html?'+temp[1]+":"+"1";
+      }
+
+
+
+      function changeS(){
+
+        var img1 = document.getElementById("main");
+
+          img1.src="image/sub.png";
+
+      }
+
+      function change(){
+
+        console.log("test");
+
+        var img1 = document.getElementById("main");
+
+          img1.src="image/main.png";
+
+
+
+      }
+
+      function goSet(){
+
+           location.href='settings.html';
+
+
+      }
+
+
+    </script>
+
+
+<style media="screen">
+
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+  .main{
+
+    background-color: #f9c134;
+    height: 1000px;
+    position: fixed;
+
+
+  }
+
+  .menu{
+
+
+    background-color:inherit;
+    border: 0;
+    outline:0;
+
+  }
+
+  .bgimg{
+
+    position: absolute;
+
+     left:27%;
+     /*left:300px;*/
+
+  }
+
+
+
+  .btstyle{
+
+    background-color:inherit;
+    border: 0;
+    outline:0;
+
+  }
+
+
+    .btlayout{
+
+      position: relative;
+      left: 650px;
+      top:200px;
+    }
+
+
+
+  #category{
+
+    background-image: url("image/category.png");
+
+  }
+
+
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+  #title{
+
+    font-size: 300%;
+    color: #9e9e9e;
+    font-size: 25pt;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+
+  #back{
+     height:64px; width:64px;
+     background-color:inherit;
+     border: 0;
+     outline:0;
+     background-image: url(image/backb.png);
+   }
+
+   #main{
+      position:relative; top:80px;
+      position: absolute;
+
+       left:27%;
+
+    }
+
+    #sub{
+       position:relative; top:80px;
+       position: absolute;
+
+        left:27%;
+     }
+
+</style>
+
+  </head>
+  <body style="background-color:#f8f8f7">
+
+
+
+
+
+  <div class="main">
+
+  <table width=250px ; height=400px ; align=center;>
+        <tr height=80px;>
+          <td id="category">
+          </td>
+        </tr>
+        <tr height=80px; align=center>
+          <td>
+
+            <button type="button";  class="menu" ; name="button";width=200px; height=300px; onclick="goMajor();">
+              <img src="image/major.png">
+            </button>
+
+          </td>
+        </tr>
+
+        <tr height=80px;  align=center >
+          <td >
+            <button type="button"; class="menu"; name="button";width=200px; height=300px; onclick="goRemedial();">
+              <img src="image/study.png">
+            </button>
+          </td>
+        </tr>
+
+        <tr height=80px;  align=center >
+          <td >
+            <button type="button";  class="menu" ; name="button";width=200px; height=300px; onclick="goLostFound();">
+              <img src="image/search.png">
+            </button>
+          </td>
+        </tr>
+
+        <tr height=80px; align=center >
+          <td >
+            <button type="button";  class="menu" ; name="button";width=200px; height=300px; onclick="goGongGu();">
+              <img src="image/gonggu.png">
+            </button>
+          </td>
+        </tr>
+
+      </table>
+</div>
+
+
+
+<table style="position:fixed;left:270px; top:0px;" >
+  <tr>
+    <td>
+      <a href="mFloor.html"><input type="button" name="" value="" id=back></a>
+    </td>
+    <td id='title'>
+       &nbsp;돌아가기
+    </td>
+  </tr>
+</table>
+
+
+
+<div class="main" style="position:fixed;right:0px; width:150px;">
+  <table align=center>
+    <tr>
+      <td height=130px>
+        <button type="button" class="menu" name="button">
+          <img src="image/settings.png" alt="" onclick="goSet();">
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+<div style="" >
+  <img src="image/main.png" alt="" id="main">
+</div>
+
+
+
+<table style="position:relative; top:550px; left:510px;">
+  <tr>
+    <td>
+      <img src="image/mainb.png" alt="" onclick="goMain();" onmouseover="change();">
+    </td>
+    <td>
+      <img src="image/subb.png" alt="" onclick="goSub();"  onmouseover="changeS();">
+    </td>
+  </tr>
+</table>
+  </body>
+</html>
