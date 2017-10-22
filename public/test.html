@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>TEST</title>
+    
+  </head>
+ <body>
+
+        <script language="JavaScript">
+                    function makeImage(e){
+                        var evt = window.event ? window.event : e;  // 이벤트 받기 (파폭, IE 처리)
+                 
+                        var img = document.createElement('img');    // 이미지 객채 생성
+                        var rnd = Math.round(Math.random() * 20) + 1;   // 이미지 랜덤하게 보여주기 위한 ..
+                        if(rnd < 10)rnd = '0' + rnd;
+                 
+                        img.src = 'images/logo.png'; // 이미지 경로 설정 (랜덤)
+                        img.style.position = 'absolute';
+                        img.style.left = event.clientX - 50 + "px";
+                        img.style.top = event.clientY - 50 + "px";
+                        document.body.appendChild(img);
+                    }
+                    document.onclick = makeImage;
+            </script>
+</body>
+</html>

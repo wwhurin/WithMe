@@ -1,0 +1,50 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Sample FirebaseUI App</title>
+  <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <script>
+      var config = {
+          apiKey: "AIzaSyAQiKIdgLMjIdAjb69BXXe3f0y-YW1rweM",
+          authDomain: "withme-1ff36.firebaseapp.com",
+          databaseURL: "https://withme-1ff36.firebaseio.com",
+          projectId: "withme-1ff36",
+          storageBucket: "",
+          messagingSenderId: "410621998244"
+        };
+       firebase.initializeApp(config);
+  </script>
+</head>
+<body>
+    <h1>사용자 정보</h1>
+ 
+    <p id="name">사용자이름 :</p>
+
+      
+   
+    <script>
+        var getParameters = function (paramName) {
+    // 리턴값을 위한 변수 선언
+    var returnValue;
+
+    // 현재 URL 가져오기
+    var url = location.href;
+
+    // get 파라미터 값을 가져올 수 있는 ? 를 기점으로 slice 한 후 split 으로 나눔
+    var parameters = (url.slice(url.indexOf('?') + 1, url.length)).split('&');
+
+    // 나누어진 값의 비교를 통해 paramName 으로 요청된 데이터의 값만 return
+    for (var i = 0; i < parameters.length; i++) {
+        var varName = parameters[i].split('=')[0];
+        if (varName.toUpperCase() == paramName.toUpperCase()) {
+            returnValue = parameters[i].split('=')[1];
+            return decodeURIComponent(returnValue);
+        }
+    }
+};
+        alert(naming);
+    </script>
+                
+</body>
+</html>
