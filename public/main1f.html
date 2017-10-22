@@ -3,25 +3,61 @@
   <head>
     <meta charset="utf-8">
     <title>미림 소프트웨어 대회</title>
-    <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase-database.js"></script>
-		<script src="https://www.gstatic.com/firebasejs/4.5.0/firebase-firestore.js"></script>
-	<script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
 	<script>
-		var config = {
-			apiKey: "AIzaSyAQiKIdgLMjIdAjb69BXXe3f0y-YW1rweM",
-			authDomain: "withme-1ff36.firebaseapp.com",
-			databaseURL: "https://withme-1ff36.firebaseio.com",
-			projectId: "withme-1ff36",
-			storageBucket: "",
-			messagingSenderId: "410621998244"
-		  };
-		 firebase.initializeApp(config);
+	 var config = {
+    apiKey: "AIzaSyAQiKIdgLMjIdAjb69BXXe3f0y-YW1rweM",
+    authDomain: "withme-1ff36.firebaseapp.com",
+    databaseURL: "https://withme-1ff36.firebaseio.com",
+    projectId: "withme-1ff36",
+    storageBucket: "withme-1ff36.appspot.com",
+    messagingSenderId: "410621998244"
+};
+firebase.initializeApp(config);
 	</script>
 
 <script type="text/javascript">
 
 var temp = location.href.split("?");
+var data =temp[1].split(":");
+
+var database = firebase.database();
+var building=["mainbuiding","secondbuilding"];
+var layer = [["1층","2층","3층","4층"],["지하1층","1층","2층"]];
+var room = [
+    [
+    ["도서관","매점"],
+    ["보건교육실","수준별1실","수준별2실","상담실","상담부","3교무실","보건실","과학실","웹진실","2교무실","여교사휴게실","남교사휴게실","대외협력실","원로교사실","행정실","교장실","1교무실"],
+    ["뉴미디어 디자인 2실","조교실","프린트실","뉴미디어 솔루션 1실","앱창작터 실습실1","인터렉티브 미디어 1실","미벤실","앱지원센터","뉴미디어 솔루션 2실","2-1","2-2","4교무실","세미나실","방송실","5교무실"],
+    ["1-5","1-6","2-4","1-4","1-3","1-2","1-1","2-3","뉴미디어 디자인 2실","디지털 스튜디오","무한상상카페","2-5","2-6","앱창작터실습실2"]
+    ],
+    [
+    ["아트 스튜디오","강당","학생 쉼터","컨설팅룸","진로활동실","음악실"],
+    ["가사실습실","디자인실습실","강당","3-6","3-5","3-4"],
+    ["예절교육실","English Cafe","강당","3-1","3-2","3-3"]
+    ]
+    ];
+
+var b = building[data[1]];
+var l = layer[data[1]][data[2]];
+var r = room[data[1]][data[2]][0];
+var treeRef = b+'/'+l;
+var userBuildingRef = database.ref(b).child(l).child(r).getkey();
+
+userBuildingRef.child("location/x").on("value", function(snapshot) {
+  alert(snapshot.val()); // Alerts "San Francisco"
+  });
+
+var mark = document.createElement('img'); //이미지 객체 생성
+      // mark.src = 'image/red.png'; //이미지 경로 설정
+      // mark.style.position = 'absolute';
+      // mark.style.left = event.clientX+"px";
+      // mark.style.top = event.clientY+"px";
+      // document.body.appendChild(img);
+
 
     function goMajor(){
 
@@ -58,6 +94,7 @@ var temp = location.href.split("?");
       var i, num, k;
 
       function setsum(k){
+        console.log(k);
         i=k;
       }
 
@@ -79,10 +116,18 @@ var temp = location.href.split("?");
         document.body.appendChild(img);
 
         //이 위에 까지는 마크 띄우는 함수인데 작동안하고요~
-
-
+        // var idck = document.getElementById(e.getAttribute('id')).getAttribute('id');
+        // if(idck="library")
+        // {var i = 1;}
+      //    $(document).ready(function(){ 
+      //    $('body').click(function(e){
+      //      var id = e.target.getAttribute('id');
+      //      if ( ( id != '') && (id != null))  
+      //      alert(id);
+      //    });
+      //  });
         //여기서부터 값전달
-        location.href ="submit.html?"+temp[1]+":"+num+":"+event.clientX+":"+event.clientY;
+        location.href ="submit.html?"+temp[1]+":"+i+":"+event.clientX+":"+event.clientY;
 
       }
 
@@ -212,7 +257,7 @@ var temp = location.href.split("?");
 
   <img src="image/main1f.png" alt="" class="bgimg" usemap="#Map">
   <map name="Map">
-    <area shape="rect" coords="335,117,555,416" alt="도서관"  target="_blank" onclick="makeImage(); setsum(1)"/>
+    <area shape="rect" coords="335,117,555,416" alt="도서관"  target="_blank" onclick="makeImage();" id="library"/>
     <area shape="rect" coords="627,546,711,724" alt="매점"  target="_blank"  onclick="makeImage();"/>
     <area shape="rect" coords="570,641,625,730" alt="매점"  target="_blank"  onclick="makeImage();"/>
 
