@@ -184,7 +184,7 @@ appendCss: function()
   cssCode += ".pjDbPopup button { background: none; }";
   cssCode += ".pjDbPopup table { width: 100%; border-collapse: collapse; border-spacing: 0; }";
   cssCode += ".pjDbPopup a[href^=tel] { color: inherit; }";
-  cssCode += ".pjDbPopup { font-family: 'Open Sans', sans-serif; position: fixed; top: 0; left: 0; z-index: 9999; overflow: hidden; width: 0; height: 0; background: rgba(0, 0, 0, .8); }";
+  cssCode += ".pjDbPopup { font-family: 'Open Sans', sans-serif; position: fixed; top: 0; left: 0; z-index: 9999; overflow: hidden; width: 0; height: 0; background: rgba(249, 193, 52, .8); }";
   //배경
   cssCode += ".pjDbPopup.pjDbPopupAutoLoad.pjDbPopupDisabled { display: none !important; }";
   cssCode += ".pjDbPopup .pjDbPopupInner { position: absolute; top: 50%; left: 50%; width: 420px; max-width: 98%; max-height: 98%; -webkit-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); -o-transform: translate(-50%, -50%); transform: translate(-50%, -50%); }";
@@ -568,7 +568,7 @@ function writeUserInfo(userId,typeNum,treeRef,rand) {
   //    alert(r);
       var treeRef = b+'/'+l+'/'+r;
       var userBuildingRef = database.ref(b).child(l).child(r);
-      alert(treeRef);
+     // alert(treeRef);
       var key = userBuildingRef.push().key;
       var buildingKey = key;
       var x = data[4];
@@ -599,7 +599,7 @@ function writeUserInfo(userId,typeNum,treeRef,rand) {
 var database = firebase.database();
 //var authProvider = new firebase.auth.GoogleAuthProvider();
 
-  makeClass(0, 0, 0, $name.value, $title.value, $people.value, $sel.value, $content.value);
+  makeClass(data[1], data[2], data[3], $name.value, $title.value, $people.value, $sel.value, $content.value);
   //내가 임의로 0, 0, 0 해뒀는데 본래는 클릭한 곳의 값이 들어와야 한다.
   //building, layer, room 순서!
   //뒤에는 값들

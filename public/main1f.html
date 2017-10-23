@@ -45,11 +45,18 @@ var b = building[data[1]];
 var l = layer[data[1]][data[2]];
 var r = room[data[1]][data[2]][0];
 var treeRef = b+'/'+l;
-var userBuildingRef = database.ref(b).child(l).child(r).getkey();
+var userBuildingRef = database.ref(b).child(l).child(r);
+//var usekey = userBuildingRef.getkey();
+//userBuildingRef = userBuildingRef.child(usekey);
 
-userBuildingRef.child("location/x").on("value", function(snapshot) {
-  alert(snapshot.val()); // Alerts "San Francisco"
+userBuildingRef.on('child_added', function(snapshot) {
+  //alert(snapshot.val().randomkey); // Alerts "San Francisco"
   });
+
+
+// userBuildingRef.child("x").on("value", function(snapshot) {
+//   alert(snapshot.val()); // Alerts "San Francisco"
+//   });
 
 var mark = document.createElement('img'); //이미지 객체 생성
       // mark.src = 'image/red.png'; //이미지 경로 설정
@@ -109,7 +116,7 @@ var mark = document.createElement('img'); //이미지 객체 생성
         var rnd = Math.round(Math.random() * 20) +1; // 이미지 랜덤하게 보여주기
         if(rnd < 10) rnd = '0' + rnd;
 
-        img.src = 'image/red.png'; //이미지 경로 설정
+        img.src = 'image/1.png'; //이미지 경로 설정
         img.style.position = 'absolute';
         img.style.left = event.clientX+"px";
         img.style.top = event.clientY+"px";
@@ -127,7 +134,10 @@ var mark = document.createElement('img'); //이미지 객체 생성
       //    });
       //  });
         //여기서부터 값전달
-        location.href ="submit.html?"+temp[1]+":"+i+":"+event.clientX+":"+event.clientY;
+
+        var test = document.getElementById("1");
+        var jb=document.getElementById("1").getAttribute('id');
+        location.href ="submit.html?"+temp[1]+":"+jb+":"+event.clientX+":"+event.clientY;
 
       }
 
@@ -257,9 +267,9 @@ var mark = document.createElement('img'); //이미지 객체 생성
 
   <img src="image/main1f.png" alt="" class="bgimg" usemap="#Map">
   <map name="Map">
-    <area shape="rect" coords="335,117,555,416" alt="도서관"  target="_blank" onclick="makeImage();" id="library"/>
-    <area shape="rect" coords="627,546,711,724" alt="매점"  target="_blank"  onclick="makeImage();"/>
-    <area shape="rect" coords="570,641,625,730" alt="매점"  target="_blank"  onclick="makeImage();"/>
+    <area shape="rect" coords="335,117,555,416" alt="도서관"  target="_blank" onclick="makeImage();" id="0"/>
+    <area shape="rect" coords="627,546,711,724" alt="매점"  target="_blank"  onclick="makeImage();" id="1"/>
+    <area shape="rect" coords="570,641,625,730" alt="매점"  target="_blank"  onclick="makeImage();" id="1"/>
 
   </map>
 

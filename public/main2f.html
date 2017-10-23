@@ -49,6 +49,39 @@
         location.href='gouggu.html';
 
       }
+
+      function makeImage(e){
+        num=getsum();
+        var evt = window.event ? window.event : e; // 이벤트 받기
+
+        var img = document.createElement('img'); //이미지 객체 생성
+        var rnd = Math.round(Math.random() * 20) +1; // 이미지 랜덤하게 보여주기
+        if(rnd < 10) rnd = '0' + rnd;
+
+        img.src = 'image/1.png'; //이미지 경로 설정
+        img.style.position = 'absolute';
+        img.style.left = event.clientX+"px";
+        img.style.top = event.clientY+"px";
+        document.body.appendChild(img);
+
+        //이 위에 까지는 마크 띄우는 함수인데 작동안하고요~
+        // var idck = document.getElementById(e.getAttribute('id')).getAttribute('id');
+        // if(idck="library")
+        // {var i = 1;}
+      //    $(document).ready(function(){ 
+      //    $('body').click(function(e){
+      //      var id = e.target.getAttribute('id');
+      //      if ( ( id != '') && (id != null))  
+      //      alert(id);
+      //    });
+      //  });
+        //여기서부터 값전달
+
+        var test = document.getElementById("1");
+        var jb=document.getElementById("1").getAttribute('id');
+        location.href ="submit.html?"+temp[1]+":"+jb+":"+event.clientX+":"+event.clientY;
+
+      }
     </script>
 
 <style media="screen">
@@ -173,22 +206,22 @@ ont-family: 'Noto Sans KR', sans-serif;
 
   <img src="image/main2f.png" alt="" class="bgimg" usemap="#Map">
   <map name="Map">
-    <area shape="rect" coords="353,82,438,167" alt="보건교육실" href="submit.html"target="_blank" />
-    <area shape="rect" coords="355,185,439,227" alt="수준별1실" href="submit.html" target="_blank" />
-    <area shape="rect" coords="354,241,439,283" alt="수준별2실" href="submit.html" target="_blank" />
-    <area shape="rect" coords="419,387,440,400" alt="상담실" href="submit.html" target="_blank" />
-    <area shape="rect" coords="355,427,440,494" alt="상담부" href="submit.html" target="_blank" />
-    <area shape="rect" coords="356,512,440,578" alt = "3교무실" href="submit.html" target="_blank"/>
-    <area shape="rect" coords="496,83,582,168" alt = "보건실" href="submit.html" target="_blank"/>
-    <area shape="rect" coords="496,184,581,270" alt = "과힉실" href="submit.html" target="_blank"/>
-    <area shape="rect" coords="497,287,581,314" alt = "웹진실"href="submit.html" target="_blank"/>
-    <area shape="rect" coords="497,319,582,403" alt = "2교무실" href="submit.html" target="_blank"/>
-    <area shape="rect" coords="496,426,579,490" alt = "여교사휴게실" href="submit.html" target="_blank"/>
-    <area shape="rect" coords="494,511,580,578" alt = "남교사휴게실" href="submit.html" target="_blank"/>
-    <area shape="rect" coords="26,719,110,803" alt = "대외협력실" href="submit.html" target="_blank"/>
-    <area shape="rect" coords="148,718,230,802" alt = "원로교사실" href="submit.html" target="_blank"/>
-    <area shape="rect" coords="598,719,683,804" alt = "교장실" href="submit.html" target="_blank"/>
-    <area shape="rect" coords="702,719,850,803"  alt = "1교무실" href="submit.html" target="_blank"/>
+    <area shape="rect" coords="353,82,438,167" alt="보건교육실" href="submit.html"target="_blank"  onclick="makeImage();"/>
+    <area shape="rect" coords="355,185,439,227" alt="수준별1실" href="submit.html" target="_blank"  onclick="makeImage();"/>
+    <area shape="rect" coords="354,241,439,283" alt="수준별2실" href="submit.html" target="_blank"  onclick="makeImage();"/>
+    <area shape="rect" coords="419,387,440,400" alt="상담실" href="submit.html" target="_blank"  onclick="makeImage();"/>
+    <area shape="rect" coords="355,427,440,494" alt="상담부" href="submit.html" target="_blank"  onclick="makeImage();"/>
+    <area shape="rect" coords="356,512,440,578" alt = "3교무실" href="submit.html" target="_blank"  onclick="makeImage();"/>
+    <area shape="rect" coords="496,83,582,168" alt = "보건실" href="submit.html" target="_blank"  onclick="makeImage();"/>
+    <area shape="rect" coords="496,184,581,270" alt = "과힉실" href="submit.html" target="_blank"  onclick="makeImage();"/>
+    <area shape="rect" coords="497,287,581,314" alt = "웹진실"href="submit.html" target="_blank"  onclick="makeImage();"/>
+    <area shape="rect" coords="497,319,582,403" alt = "2교무실" href="submit.html" target="_blank"  onclick="makeImage();"/>
+    <area shape="rect" coords="496,426,579,490" alt = "여교사휴게실" href="submit.html" target="_blank"  onclick="makeImage();"/>
+    <area shape="rect" coords="494,511,580,578" alt = "남교사휴게실" href="submit.html" target="_blank"  onclick="makeImage();"/>
+    <area shape="rect" coords="26,719,110,803" alt = "대외협력실" href="submit.html" target="_blank"  onclick="makeImage();"/>
+    <area shape="rect" coords="148,718,230,802" alt = "원로교사실" href="submit.html" target="_blank"  onclick="makeImage();"/>
+    <area shape="rect" coords="598,719,683,804" alt = "교장실" href="submit.html" target="_blank"  onclick="makeImage();"/>
+    <area shape="rect" coords="702,719,850,803"  alt = "1교무실" href="submit.html" target="_blank"  onclick="makeImage();"/>
   </map>
 
 
